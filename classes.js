@@ -63,7 +63,7 @@ josh.makeWidget()
 
 //Code Here
 class Manager extends Employee {
-  constructor(firstName, lastName, email, age, reports){
+  constructor(firstName, lastName, email, age){
     super(firstName, lastName, email, age)
     this.reports = [];
   }
@@ -98,22 +98,22 @@ class Manager extends Employee {
 
 //Code Here
 class ProgressiveManager extends Manager {
-  constructor(firstName, lastName, email, age, reports, title, bonus){
-  super(firstName, lastName, email, age, reports)
-  this.title = title;
+  constructor(firstName, lastName, email, age){
+  super(firstName, lastName, email, age)
+  this.title = 'Not a manager';
   this.bonus = 0;
   }
   hire(employee){
     super.hire(employee)
-      if (this.report >= 101){
+      if (this.reports.length >= 101){
         this.title = 'Bestest Manager'
-      } else if (this.report <= 100 && this.reports >= 51){
+      } else if (this.reports.length <= 100 && this.reports.length >= 51){
         this.title = 'Manager Plus'
-      } else if (this.reports <= 50 && this.reports >= 11){
+      } else if (this.reports.length <= 50 && this.reports.length >= 11){
         this.title = 'Manager'
-      } else if (this.reports <= 10 && this.reports >= 4){
+      } else if (this.reports.length <= 10 && this.reports.length >= 4){
         this.title = 'Mostly Manager'
-      } else if (this.reports <= 3 && this.reports >= 1){
+      } else if (this.reports.length <= 3 && this.reports.length >= 1){
         this.title = 'Barely Manager'
       } else {
         this.title = 'Not a manager'
@@ -129,7 +129,6 @@ class ProgressiveManager extends Manager {
 console.log(ProgressiveManager)
 let dwight = new ProgressiveManager('Dwight', 'Schrute', 'dschrute@dm.com', 38, this.reports, this.title, this.bonus)
 console.log(dwight)
-dwight.hire()
 ////////// PROBLEM 4 - Black Diamond //////////
 
 /*
