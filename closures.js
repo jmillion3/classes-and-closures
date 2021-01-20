@@ -23,13 +23,13 @@ function outer() {
 */
   
 // Code Here
-
+let inner = outer()
 
 
 //Once you do that, invoke inner.
 
 //Code Here
-
+inner()
 
 
 ////////// PROBLEM 2 //////////
@@ -51,10 +51,9 @@ function callFriend(name) {
   (HINT: You will need to pass in arguments to both function invocations)
 */
 
-//Code Here
-
-
-
+//!Code Here WHY DOESNT IT NEED THE NUMBER???
+let callJake = callFriend('Jake')
+// callJake('435-555-9248')
 ////////// PROBLEM 3 //////////
 
 /*
@@ -62,16 +61,24 @@ function callFriend(name) {
 */
 
 //Code Here
-
+function makeCounter(){
+  let count = 0;
+  return function (){
+    return count += 1
+  }
+}
 
 
 //Uncomment this once you make your function
-//   var count = makeCounter();
-//   count(); // 1
-//   count(); // 2
-//   count(); // 3
-//   count(); // 4
-
+  var count = makeCounter();
+  count(); // 1
+  count(); // 2
+  count(); // 3
+  count(); // 4
+  // console.log(count()); // 1
+  // console.log(count()); // 2
+  // console.log(count()); // 3
+  // console.log(count()); // 4
 
 
 ////////// PROBLEM 4 //////////
@@ -189,7 +196,7 @@ function secretNumber() {
 function timeOutCounter() {
   for (var i = 0; i <= 5; i++) {
     setTimeout(function() {
-      console.log(i);
+      // console.log(i);
     }, i * 1000);
   }
 }

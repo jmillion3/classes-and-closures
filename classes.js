@@ -30,7 +30,21 @@
 */
 
 //Code Here
+class Employee {
+  constructor(first_name, last_name, email, age){
+    this.first_name = first_name;
+    this.last_name = last_name;
+    this.email = email;
+    this.age = age;
+  }
+  makeWidget = () => {
+    return `${this.first_name} ${this.last_name} Widget`
+  }
+  
+}
 
+const josh = new Employee('Josh', 'Miller', 'josh@gmail.com', 29)
+josh.makeWidget()
 
 ////////// PROBLEM 2 //////////
 
@@ -48,7 +62,18 @@
 */
 
 //Code Here
-
+class Manager extends Employee {
+  constructor(firstName, lastName, email, age, reports){
+    super(firstName, lastName, email, age)
+    this.reports = [];
+  }
+  hire(employee) {
+    this.reports.push(employee)
+  }
+  fire(index){
+    this.reports.splice(index, 1)
+  }
+}
 
 ////////// PROBLEM 3 //////////
 
@@ -72,9 +97,39 @@
 */
 
 //Code Here
+class ProgressiveManager extends Manager {
+  constructor(firstName, lastName, email, age, reports, title, bonus){
+  super(firstName, lastName, email, age, reports)
+  this.title = title;
+  this.bonus = 0;
+  }
+  hire(employee){
+    super.hire(employee)
+      if (this.report >= 101){
+        this.title = 'Bestest Manager'
+      } else if (this.report <= 100 && this.reports >= 51){
+        this.title = 'Manager Plus'
+      } else if (this.reports <= 50 && this.reports >= 11){
+        this.title = 'Manager'
+      } else if (this.reports <= 10 && this.reports >= 4){
+        this.title = 'Mostly Manager'
+      } else if (this.reports <= 3 && this.reports >= 1){
+        this.title = 'Barely Manager'
+      } else {
+        this.title = 'Not a manager'
+      }
+      return this.title
+  }
+  fire(index){
+    super.fire(index)
+      return this.bonus += 100
+  }
+}
 
-
-
+console.log(ProgressiveManager)
+let dwight = new ProgressiveManager('Dwight', 'Schrute', 'dschrute@dm.com', 38, this.reports, this.title, this.bonus)
+console.log(dwight)
+dwight.hire()
 ////////// PROBLEM 4 - Black Diamond //////////
 
 /*
@@ -99,5 +154,6 @@
 */
 
 //Code Here
-
-
+// class Machine {
+//   constructor()
+// }
